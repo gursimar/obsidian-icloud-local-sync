@@ -1,7 +1,7 @@
 
 ## Running
 
-``` python
+``` bash
 clear; python -u sync.py 2>&1 | Tee-Object -FilePath "out.log"
 ```
 
@@ -176,5 +176,3 @@ Compute stable content hashes for `L`, `C`, `H`:
 The problem was racey, metadata-driven behavior when using an iCloud-backed Obsidian vault on Windows: duplicate files (`Scratch (1).md` etc.), `PermissionError` on atomic replace, and Obsidian “externally modified” warnings.
 
 The solution is a conservative, history-backed three-way sync between Local, iCloud, and a local History snapshot. It uses stabilization windows, per-file cooldowns, content hashes, atomic writes with retries, and explicit creation/deletion rules to avoid duplicates, data loss, and editor-synchronization races while making sync predictable and auditable.
-#   o b s i d i a n - i c l o u d - l o c a l - s y n c  
- 
